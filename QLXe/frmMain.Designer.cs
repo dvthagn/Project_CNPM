@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -40,7 +41,11 @@
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.menuKhach = new DevExpress.XtraBars.BarButtonItem();
+            this.menuXe = new DevExpress.XtraBars.BarButtonItem();
+            this.menuPhutung = new DevExpress.XtraBars.BarButtonItem();
+            this.menuHoadon = new DevExpress.XtraBars.BarButtonItem();
+            this.menuChitiet_HD = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,8 +64,12 @@
             this.barSubItem1,
             this.barSubItem2,
             this.barButtonItem2,
-            this.barButtonItem3});
-            this.barManager1.MaxItemId = 5;
+            this.menuKhach,
+            this.menuXe,
+            this.menuPhutung,
+            this.menuHoadon,
+            this.menuChitiet_HD});
+            this.barManager1.MaxItemId = 9;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -92,34 +101,34 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(737, 25);
+            this.barDockControlTop.Size = new System.Drawing.Size(866, 26);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 322);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 487);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(737, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(866, 21);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 297);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 461);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(737, 25);
+            this.barDockControlRight.Location = new System.Drawing.Point(866, 26);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 297);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 461);
             // 
             // barButtonItem1
             // 
@@ -139,7 +148,11 @@
             this.barSubItem2.Caption = "Danh mục";
             this.barSubItem2.Id = 2;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuKhach),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuXe),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuPhutung),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuHoadon),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuChitiet_HD)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // barButtonItem2
@@ -148,24 +161,54 @@
             this.barButtonItem2.Id = 3;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // barButtonItem3
+            // menuKhach
             // 
-            this.barButtonItem3.Caption = "Khách";
-            this.barButtonItem3.Id = 4;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.menuKhach.Caption = "Khách";
+            this.menuKhach.Id = 4;
+            this.menuKhach.Name = "menuKhach";
+            // 
+            // menuXe
+            // 
+            this.menuXe.Caption = "Xe";
+            this.menuXe.Id = 5;
+            this.menuXe.Name = "menuXe";
+            // 
+            // menuPhutung
+            // 
+            this.menuPhutung.Caption = "Phụ tùng";
+            this.menuPhutung.Id = 6;
+            this.menuPhutung.Name = "menuPhutung";
+            // 
+            // menuHoadon
+            // 
+            this.menuHoadon.Caption = "Hóa đơn";
+            this.menuHoadon.Id = 7;
+            this.menuHoadon.Name = "menuHoadon";
+            // 
+            // menuChitiet_HD
+            // 
+            this.menuChitiet_HD.Caption = "Chi tiết hóa đơn";
+            this.menuChitiet_HD.Id = 8;
+            this.menuChitiet_HD.Name = "menuChitiet_HD";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 342);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
+            this.ClientSize = new System.Drawing.Size(866, 508);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmMain.IconOptions.Image")));
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Quản lí của hàng xe máy AVIA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,8 +226,12 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem menuKhach;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem menuXe;
+        private DevExpress.XtraBars.BarButtonItem menuPhutung;
+        private DevExpress.XtraBars.BarButtonItem menuHoadon;
+        private DevExpress.XtraBars.BarButtonItem menuChitiet_HD;
     }
 }
