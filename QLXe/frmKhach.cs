@@ -53,5 +53,48 @@ namespace QLXe
 
 
         }
+
+        private void menuSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (action == false) //insert
+            {
+
+                var k = new KHACH
+                {
+                    MAKHACH = txtMakhach.Text.Trim(),
+                    TENKHACH = txtTenkhach.Text.Trim(),
+                    SODIENTHOAI = txtSDT.Text.Trim(),
+                    DIACHI = txtDiachi.Text.Trim()
+                };
+                txtMakhach.Text = "";
+                txtTenkhach.Text = "";
+                txtSDT.Text = "";
+                txtDiachi.Text = "";
+                data.KHACHes.Add(k);
+                data.SaveChanges();
+                getData();
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //update
+                    var s = (from t in data.KHACHes
+                             where t.MAKHACH == txtMakhach.Text
+                             select t
+                             ).SingleOrDefault();
+
+                    s.TENKHACH = txtTenkhach.Text.Trim();
+                    s.DIACHI = txtDiachi.Text.Trim();
+                    s.SODIENTHOAI = txtSDT.Text.Trim();
+
+                    data.SaveChanges();
+
+                    getData();
+
+                }
+
+            }
+        }
     }
 }
