@@ -178,7 +178,9 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Location = new System.Drawing.Point(120, 37);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(496, 33);
@@ -215,6 +217,8 @@
             // 
             // grThongtin
             // 
+            this.grThongtin.Appearance.BackColor = System.Drawing.Color.White;
+            this.grThongtin.Appearance.Options.UseBackColor = true;
             this.grThongtin.Controls.Add(this.cboMaphutung);
             this.grThongtin.Controls.Add(this.cboSohoadon);
             this.grThongtin.Controls.Add(this.txtDongia);
@@ -286,39 +290,49 @@
             // 
             // labelControl6
             // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(419, 42);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(51, 16);
+            this.labelControl6.Size = new System.Drawing.Size(56, 18);
             this.labelControl6.TabIndex = 3;
             this.labelControl6.Text = "Số lượng";
             this.labelControl6.Click += new System.EventHandler(this.labelControl6_Click);
             // 
             // labelControl5
             // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(419, 95);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(44, 16);
+            this.labelControl5.Size = new System.Drawing.Size(49, 18);
             this.labelControl5.TabIndex = 2;
             this.labelControl5.Text = "Đơn giá";
             // 
             // labelControl4
             // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(104, 95);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(71, 16);
+            this.labelControl4.Size = new System.Drawing.Size(83, 18);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "Mã phụ tùng";
             // 
             // labelControl3
             // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(104, 42);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(65, 16);
+            this.labelControl3.Size = new System.Drawing.Size(75, 18);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Số hóa đơn";
             // 
             // frmChitiet_HD
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 458);
