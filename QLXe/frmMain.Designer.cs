@@ -127,6 +127,7 @@
             this.menuChitiet_HD.Caption = "Chi tiết hóa đơn";
             this.menuChitiet_HD.Id = 8;
             this.menuChitiet_HD.Name = "menuChitiet_HD";
+            this.menuChitiet_HD.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuChitiet_HD_ItemClick);
             // 
             // bar3
             // 

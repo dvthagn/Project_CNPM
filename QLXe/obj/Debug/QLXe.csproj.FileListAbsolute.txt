@@ -108,3 +108,4 @@ E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\ru\DevExpress.XtraVerticalGri
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmXe.resources
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmPhutung.resources
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmHoadon.resources
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmChitiet_HD.resources

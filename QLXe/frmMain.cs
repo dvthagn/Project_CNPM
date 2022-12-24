@@ -50,5 +50,12 @@ namespace QLXe
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuChitiet_HD_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmChitiet_HD f = new frmChitiet_HD();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

@@ -109,5 +109,49 @@ namespace QLXe
                 }
             }
         }
+
+        private void menuDel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                var delItem = data.CHITIET_HD.FirstOrDefault(x => x.SOHOADON.Contains(txtSohoadon.Text));
+                if (delItem != null)
+                {
+                    MessageBox.Show("Không xóa được !");
+                }
+                else
+                {
+                    var s = (from t in data.HOADONs
+                             where t.SOHOADON == txtSohoadon.Text
+                             select t
+                             ).SingleOrDefault();
+                    data.HOADONs.Remove(s);
+                    data.SaveChanges();
+                    getData();
+
+                }
+            }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            txtSohoadon.Text = gridView1.GetFocusedRowCellValue("SOHOADON").ToString();
+            cboSoxe.Text = gridView1.GetFocusedRowCellValue("SOXE").ToString();
+
+            txtNgaythanhlap.Text = gridView1.GetFocusedRowCellValue("NGAYLAPHD").ToString();
+
+
+            menuDel.Enabled = true;
+            action = true; //update
+        }
+
+        private void menuCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            action = false; //insert
+            txtSohoadon.ReadOnly = false;
+            menuDel.Enabled = false;
+            resetText();
+        }
     }
 }
