@@ -143,5 +143,53 @@ namespace QLXe
                 }
             }
         }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            txtSoxe.Text = gridView1.GetFocusedRowCellValue("SOXE").ToString();
+            cboMakhach.Text = gridView1.GetFocusedRowCellValue("MAKHACH").ToString();
+
+            txtHieuxe.Text = gridView1.GetFocusedRowCellValue("HIEUXE").ToString();
+            txtSosuon.Text = gridView1.GetFocusedRowCellValue("SOSUON").ToString();
+            txtSomay.Text = gridView1.GetFocusedRowCellValue("SOMAY").ToString();
+            txtNgaymua.Text = gridView1.GetFocusedRowCellValue("NGAYMUA").ToString();
+            txtGiamua.Text = gridView1.GetFocusedRowCellValue("GIAMUA").ToString();
+
+
+            menuDel.Enabled = true;
+            action = true; //update
+        }
+
+        private void menuDel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                var delItem = data.HOADONs.FirstOrDefault(x => x.SOXE.Contains(txtSoxe.Text));
+                if (delItem != null)
+                {
+                    MessageBox.Show("Không xóa được !");
+                }
+                else
+                {
+
+                    var s = (from t in data.XEs
+                             where t.SOXE == txtSoxe.Text
+                             select t
+                             ).SingleOrDefault();
+                    data.XEs.Remove(s);
+                    data.SaveChanges();
+                    getData();
+                }
+
+            }
+        }
+
+        private void menuCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            action = false; //insert
+            txtSoxe.ReadOnly = false;
+            menuDel.Enabled = false;
+            resetText();
+        }
     }
 }
