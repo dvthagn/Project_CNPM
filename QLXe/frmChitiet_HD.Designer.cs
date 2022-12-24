@@ -107,6 +107,7 @@
             this.menuSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.menuSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.menuSave.Name = "menuSave";
+            this.menuSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuSave_ItemClick);
             // 
             // bar3
             // 
@@ -327,6 +328,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChitiet_HD";
             this.Text = "Quản lí chi tiết hóa đơn";
+            this.Load += new System.EventHandler(this.frmChitiet_HD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grDanhsach)).EndInit();
             this.grDanhsach.ResumeLayout(false);
