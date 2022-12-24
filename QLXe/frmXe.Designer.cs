@@ -358,6 +358,7 @@
             this.txtGiamua.Name = "txtGiamua";
             this.txtGiamua.Size = new System.Drawing.Size(176, 22);
             this.txtGiamua.TabIndex = 12;
+            this.txtGiamua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamua_KeyPress);
             // 
             // dgXe
             // 

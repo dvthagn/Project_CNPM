@@ -191,5 +191,13 @@ namespace QLXe
             menuDel.Enabled = false;
             resetText();
         }
+
+        private void txtGiamua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
