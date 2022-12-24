@@ -88,5 +88,60 @@ namespace QLXe
             dgXe.DataSource = v.ToList();
             resetText();
         }
+
+        private void menuSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (action == false) //insert
+            {
+                if (int.Parse(txtGiamua.Text.Trim()) < 0)
+                {
+                    MessageBox.Show("Giá mua không được số âm", "Thông báo");
+                }
+                else
+                {
+
+
+                    var k = new XE
+                    {
+
+                        SOXE = txtSoxe.Text.Trim(),
+                        MAKHACH = cboMakhach.EditValue.ToString(),
+                        HIEUXE = txtHieuxe.Text.Trim(),
+                        SOSUON = txtSosuon.Text.Trim(),
+                        SOMAY = txtSomay.Text.Trim(),
+                        NGAYMUA = DateTime.Parse(txtNgaymua.EditValue.ToString()),
+                        GIAMUA = int.Parse(txtGiamua.Text.Trim()),
+
+                    };
+                    resetText();
+
+
+                    data.XEs.Add(k);
+                    data.SaveChanges();
+                    getData();
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //update
+                    var s = (from t in data.XEs
+                             where t.SOXE == txtSoxe.Text
+                             select t
+                             ).SingleOrDefault();
+
+                    s.MAKHACH = cboMakhach.SelectedText.ToString();
+                    s.HIEUXE = txtHieuxe.Text.Trim();
+                    s.SOSUON = txtSosuon.Text.Trim();
+                    s.SOMAY = txtSomay.Text.Trim();
+                    s.NGAYMUA = DateTime.Parse(txtNgaymua.EditValue.ToString());
+                    s.GIAMUA = int.Parse(txtGiamua.Text.Trim());
+
+                    data.SaveChanges();
+                    getData();
+                }
+            }
+        }
     }
 }
