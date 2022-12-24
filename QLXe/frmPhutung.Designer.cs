@@ -258,6 +258,7 @@
             this.txtDongia.Name = "txtDongia";
             this.txtDongia.Size = new System.Drawing.Size(160, 22);
             this.txtDongia.TabIndex = 8;
+            this.txtDongia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDongia_KeyPress);
             // 
             // txtNuocsanxuat
             // 
