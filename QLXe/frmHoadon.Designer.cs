@@ -298,6 +298,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHoadon";
             this.Text = "Quản lí hóa đơn";
+            this.Load += new System.EventHandler(this.frmHoadon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grDanhsach)).EndInit();
             this.grDanhsach.ResumeLayout(false);
