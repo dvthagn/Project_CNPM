@@ -83,6 +83,12 @@
     <Compile Include="CHITIET_HD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmHoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoadon.Designer.cs">
+      <DependentUpon>frmHoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKhach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     <Compile Include="XE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmHoadon.resx">
+      <DependentUpon>frmHoadon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmKhach.resx">
       <DependentUpon>frmKhach.cs</DependentUpon>
     </EmbeddedResource>

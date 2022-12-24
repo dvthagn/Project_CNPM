@@ -120,6 +120,7 @@
             this.menuHoadon.Caption = "Hóa đơn";
             this.menuHoadon.Id = 7;
             this.menuHoadon.Name = "menuHoadon";
+            this.menuHoadon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuHoadon_ItemClick);
             // 
             // menuChitiet_HD
             // 

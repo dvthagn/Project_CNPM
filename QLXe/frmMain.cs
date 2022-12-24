@@ -43,5 +43,12 @@ namespace QLXe
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuHoadon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHoadon f = new frmHoadon();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
