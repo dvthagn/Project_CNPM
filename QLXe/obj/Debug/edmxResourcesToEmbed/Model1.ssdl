@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLIBAOHANHXEMAYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIET_HD">
+    <Key>
+      <PropertyRef Name="SOHOADON" />
+      <PropertyRef Name="MAPHUTUNG" />
+    </Key>
+    <Property Name="SOHOADON" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MAPHUTUNG" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SOLUONG" Type="int" />
+    <Property Name="DONGIA" Type="int" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="SOHOADON" />
+    </Key>
+    <Property Name="SOHOADON" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SOXE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NGAYLAPHD" Type="date" />
+  </EntityType>
+  <EntityType Name="KHACH">
+    <Key>
+      <PropertyRef Name="MAKHACH" />
+    </Key>
+    <Property Name="MAKHACH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENKHACH" Type="nvarchar" MaxLength="30" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+    <Property Name="SODIENTHOAI" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="PHUTUNG">
+    <Key>
+      <PropertyRef Name="MAPHUTUNG" />
+    </Key>
+    <Property Name="MAPHUTUNG" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENPHUTUNG" Type="nvarchar" MaxLength="50" />
+    <Property Name="NUOCSX" Type="nvarchar" MaxLength="50" />
+    <Property Name="DONGIA" Type="int" />
+    <Property Name="THOIGIANBAOHANH" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="SOXE" />
+    </Key>
+    <Property Name="SOXE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MAKHACH" Type="varchar" MaxLength="20" />
+    <Property Name="HIEUXE" Type="varchar" MaxLength="20" />
+    <Property Name="SOSUON" Type="varchar" MaxLength="20" />
+    <Property Name="SOMAY" Type="varchar" MaxLength="20" />
+    <Property Name="NGAYMUA" Type="date" />
+    <Property Name="GIAMUA" Type="int" />
+  </EntityType>
+  <Association Name="FK_MAKHACH_XE_KHACH">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="MAKHACH" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="MAKHACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAPHUTUNG_CHITIET_HD_PHUTUNG">
+    <End Role="PHUTUNG" Type="Self.PHUTUNG" Multiplicity="1" />
+    <End Role="CHITIET_HD" Type="Self.CHITIET_HD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHUTUNG">
+        <PropertyRef Name="MAPHUTUNG" />
+      </Principal>
+      <Dependent Role="CHITIET_HD">
+        <PropertyRef Name="MAPHUTUNG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOHD_CHITIET_HD_HOADON">
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+    <End Role="CHITIET_HD" Type="Self.CHITIET_HD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="SOHOADON" />
+      </Principal>
+      <Dependent Role="CHITIET_HD">
+        <PropertyRef Name="SOHOADON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOXE_HOADON_XE">
+    <End Role="XE" Type="Self.XE" Multiplicity="1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="SOXE" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="SOXE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QUANLIBAOHANHXEMAYModelStoreContainer">
+    <EntitySet Name="CHITIET_HD" EntityType="Self.CHITIET_HD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHUTUNG" EntityType="Self.PHUTUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MAKHACH_XE_KHACH" Association="Self.FK_MAKHACH_XE_KHACH">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAPHUTUNG_CHITIET_HD_PHUTUNG" Association="Self.FK_MAPHUTUNG_CHITIET_HD_PHUTUNG">
+      <End Role="PHUTUNG" EntitySet="PHUTUNG" />
+      <End Role="CHITIET_HD" EntitySet="CHITIET_HD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOHD_CHITIET_HD_HOADON" Association="Self.FK_SOHD_CHITIET_HD_HOADON">
+      <End Role="HOADON" EntitySet="HOADON" />
+      <End Role="CHITIET_HD" EntitySet="CHITIET_HD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOXE_HOADON_XE" Association="Self.FK_SOXE_HOADON_XE">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

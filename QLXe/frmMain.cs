@@ -22,5 +22,12 @@ namespace QLXe
         {
 
         }
+
+        private void menuKhach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmKhach f = new frmKhach();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

@@ -32,6 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+            this.menuKhach = new DevExpress.XtraBars.BarButtonItem();
+            this.menuXe = new DevExpress.XtraBars.BarButtonItem();
+            this.menuPhutung = new DevExpress.XtraBars.BarButtonItem();
+            this.menuHoadon = new DevExpress.XtraBars.BarButtonItem();
+            this.menuChitiet_HD = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -39,13 +45,7 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.menuKhach = new DevExpress.XtraBars.BarButtonItem();
-            this.menuXe = new DevExpress.XtraBars.BarButtonItem();
-            this.menuPhutung = new DevExpress.XtraBars.BarButtonItem();
-            this.menuHoadon = new DevExpress.XtraBars.BarButtonItem();
-            this.menuChitiet_HD = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +81,49 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2)});
             this.bar1.Text = "Tools";
+            // 
+            // barSubItem2
+            // 
+            this.barSubItem2.Caption = "Danh mục";
+            this.barSubItem2.Id = 2;
+            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuKhach),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuXe),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuPhutung),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuHoadon),
+            new DevExpress.XtraBars.LinkPersistInfo(this.menuChitiet_HD)});
+            this.barSubItem2.Name = "barSubItem2";
+            // 
+            // menuKhach
+            // 
+            this.menuKhach.Caption = "Khách";
+            this.menuKhach.Id = 4;
+            this.menuKhach.Name = "menuKhach";
+            this.menuKhach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuKhach_ItemClick);
+            // 
+            // menuXe
+            // 
+            this.menuXe.Caption = "Xe";
+            this.menuXe.Id = 5;
+            this.menuXe.Name = "menuXe";
+            // 
+            // menuPhutung
+            // 
+            this.menuPhutung.Caption = "Phụ tùng";
+            this.menuPhutung.Id = 6;
+            this.menuPhutung.Name = "menuPhutung";
+            // 
+            // menuHoadon
+            // 
+            this.menuHoadon.Caption = "Hóa đơn";
+            this.menuHoadon.Id = 7;
+            this.menuHoadon.Name = "menuHoadon";
+            // 
+            // menuChitiet_HD
+            // 
+            this.menuChitiet_HD.Caption = "Chi tiết hóa đơn";
+            this.menuChitiet_HD.Id = 8;
+            this.menuChitiet_HD.Name = "menuChitiet_HD";
             // 
             // bar3
             // 
@@ -143,53 +186,11 @@
             this.barSubItem1.Id = 1;
             this.barSubItem1.Name = "barSubItem1";
             // 
-            // barSubItem2
-            // 
-            this.barSubItem2.Caption = "Danh mục";
-            this.barSubItem2.Id = 2;
-            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.menuKhach),
-            new DevExpress.XtraBars.LinkPersistInfo(this.menuXe),
-            new DevExpress.XtraBars.LinkPersistInfo(this.menuPhutung),
-            new DevExpress.XtraBars.LinkPersistInfo(this.menuHoadon),
-            new DevExpress.XtraBars.LinkPersistInfo(this.menuChitiet_HD)});
-            this.barSubItem2.Name = "barSubItem2";
-            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "barButtonItem2";
             this.barButtonItem2.Id = 3;
             this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // menuKhach
-            // 
-            this.menuKhach.Caption = "Khách";
-            this.menuKhach.Id = 4;
-            this.menuKhach.Name = "menuKhach";
-            // 
-            // menuXe
-            // 
-            this.menuXe.Caption = "Xe";
-            this.menuXe.Id = 5;
-            this.menuXe.Name = "menuXe";
-            // 
-            // menuPhutung
-            // 
-            this.menuPhutung.Caption = "Phụ tùng";
-            this.menuPhutung.Id = 6;
-            this.menuPhutung.Name = "menuPhutung";
-            // 
-            // menuHoadon
-            // 
-            this.menuHoadon.Caption = "Hóa đơn";
-            this.menuHoadon.Id = 7;
-            this.menuHoadon.Name = "menuHoadon";
-            // 
-            // menuChitiet_HD
-            // 
-            this.menuChitiet_HD.Caption = "Chi tiết hóa đơn";
-            this.menuChitiet_HD.Id = 8;
-            this.menuChitiet_HD.Name = "menuChitiet_HD";
             // 
             // frmMain
             // 
