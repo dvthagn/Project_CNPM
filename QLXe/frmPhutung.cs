@@ -61,5 +61,102 @@ namespace QLXe
 
 
         }
+
+        private void menuSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (action == false) //insert
+            {
+                if (int.Parse(txtDongia.Text.Trim()) < 0)
+                {
+                    MessageBox.Show("Giá mua không được số âm", "Thông báo");
+                }
+                else
+                {
+                    var k = new PHUTUNG
+                    {
+                        MAPHUTUNG = txtMaphutung.Text.Trim(),
+                        TENPHUTUNG = txtTenphutung.Text.Trim(),
+                        NUOCSX = txtNuocsanxuat.Text.Trim(),
+                        DONGIA = int.Parse(txtDongia.Text.Trim()),
+                        THOIGIANBAOHANH = DateTime.Parse(txtThoigianbaohanh.EditValue.ToString()),
+                    };
+
+                    resetText();
+
+                    data.PHUTUNGs.Add(k);
+                    data.SaveChanges();
+                    getData();
+
+                }
+
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //update
+                    var s = (from t in data.PHUTUNGs
+                             where t.MAPHUTUNG == txtMaphutung.Text
+                             select t
+                             ).SingleOrDefault();
+
+                    s.TENPHUTUNG = txtTenphutung.Text.Trim();
+                    s.NUOCSX = txtNuocsanxuat.Text.Trim();
+                    s.DONGIA = int.Parse(txtDongia.Text.Trim());
+                    s.THOIGIANBAOHANH = DateTime.Parse(txtThoigianbaohanh.EditValue.ToString());
+
+
+                    data.SaveChanges();
+                    getData();
+                }
+            }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+
+            txtMaphutung.Text = gridView1.GetFocusedRowCellValue("MAPHUTUNG").ToString();
+            txtTenphutung.Text = gridView1.GetFocusedRowCellValue("TENPHUTUNG").ToString();
+
+            txtNuocsanxuat.Text = gridView1.GetFocusedRowCellValue("NUOCSANXUAT").ToString();
+            txtDongia.Text = gridView1.GetFocusedRowCellValue("DONGIA").ToString();
+            txtThoigianbaohanh.Text = gridView1.GetFocusedRowCellValue("THOIGIANBAOHANH").ToString();
+
+
+
+            menuDel.Enabled = true;
+            action = true; //update
+        }
+
+        private void menuDel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                var delItem = data.CHITIET_HD.FirstOrDefault(x => x.MAPHUTUNG.Contains(txtMaphutung.Text));
+                if (delItem != null)
+                {
+                    MessageBox.Show("Không xóa được !");
+                }
+                else
+                {
+
+                    var s = (from t in data.PHUTUNGs
+                             where t.MAPHUTUNG == txtMaphutung.Text
+                             select t
+                             ).SingleOrDefault();
+                    data.PHUTUNGs.Remove(s);
+                    data.SaveChanges();
+                    getData();
+                }
+            }
+        }
+
+        private void menuCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            action = false; //insert
+            txtMaphutung.ReadOnly = false;
+            menuDel.Enabled = false;
+            resetText();
+        }
     }
 }
