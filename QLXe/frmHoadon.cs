@@ -72,5 +72,42 @@ namespace QLXe
             dgHoadon.DataSource = v.ToList();
             resetText();
         }
+
+        private void menuSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (action == false) //insert
+            {
+                var k = new HOADON
+                {
+                    SOHOADON = txtSohoadon.Text.Trim(),
+                    SOXE = cboSoxe.EditValue.ToString(),
+                    NGAYLAPHD = DateTime.Parse(txtNgaythanhlap.EditValue.ToString()),
+                };
+                resetText();
+                data.HOADONs.Add(k);
+                data.SaveChanges();
+                getData();
+
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //update
+                    var s = (from t in data.HOADONs
+                             where t.SOHOADON == txtSohoadon.Text
+                             select t
+                             ).SingleOrDefault();
+
+                    s.SOHOADON = txtSohoadon.Text.Trim();
+                    s.SOXE = cboSoxe.EditValue.ToString();
+                    s.NGAYLAPHD = DateTime.Parse(txtNgaythanhlap.EditValue.ToString());
+
+                    
+                    data.SaveChanges();
+                    getData();
+                }
+            }
+        }
     }
 }
