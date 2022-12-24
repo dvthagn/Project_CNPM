@@ -143,5 +143,43 @@ namespace QLXe
                 }
             }
         }
+
+        private void menuDel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+
+                var s = (from t in data.CHITIET_HD
+                         where ((t.SOHOADON == cboSohoadon.EditValue.ToString()) && (t.MAPHUTUNG == cboMaphutung.EditValue.ToString()))
+                         select t
+                             ).SingleOrDefault();
+                data.CHITIET_HD.Remove(s);
+                data.SaveChanges();
+                getData();
+            }
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            cboSohoadon.Text = gridView2.GetFocusedRowCellValue("SOHOADON").ToString();
+            cboMaphutung.Text = gridView2.GetFocusedRowCellValue("MAPHUTUNG").ToString();
+
+            txtSoluong.Text = gridView2.GetFocusedRowCellValue("SOLUONG").ToString();
+            txtDongia.Text = gridView2.GetFocusedRowCellValue("DONGIA").ToString();
+
+
+
+
+            menuDel.Enabled = true;
+            action = true; //update
+        }
+
+        private void menuCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            menuDel.Enabled = false;
+            action = false; //insert
+            resetText();
+        }
     }
 }
