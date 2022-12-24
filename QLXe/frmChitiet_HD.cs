@@ -95,7 +95,53 @@ namespace QLXe
         }
         private void menuSave_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (action == false) //insert
+            {
+                if (int.Parse(txtDongia.Text.Trim()) < 0)
+                {
+                    MessageBox.Show("Đơn giá không được số âm", "Thông báo");
+                }
+                else if (int.Parse(txtSoluong.Text.Trim()) < 0)
+                {
+                    MessageBox.Show("Số lượng không được số âm", "Thông báo");
+                }
+                else
+                {
 
+                    var k = new CHITIET_HD
+                    {
+                        SOHOADON = cboSohoadon.EditValue.ToString(),
+                        MAPHUTUNG = cboMaphutung.EditValue.ToString(),
+                        SOLUONG = int.Parse(txtSoluong.Text.Trim()),
+                        DONGIA = int.Parse(txtDongia.Text.Trim())
+
+
+                    };
+                    resetText();
+                    data.CHITIET_HD.Add(k);
+                    data.SaveChanges();
+                    getData();
+                }
+
+            }
+            else
+            {
+                if (MessageBox.Show("Do you want to update?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //update
+                    var s = (from t in data.CHITIET_HD
+                             where ((t.SOHOADON == cboSohoadon.EditValue.ToString()) && (t.MAPHUTUNG == cboMaphutung.EditValue.ToString()))
+                             select t
+                             ).SingleOrDefault();
+
+                    s.SOLUONG = int.Parse(txtSoluong.Text.Trim());
+
+                    s.DONGIA = int.Parse(txtDongia.Text.Trim());
+                    resetText();
+                    data.SaveChanges();
+                    getData();
+                }
+            }
         }
     }
 }
