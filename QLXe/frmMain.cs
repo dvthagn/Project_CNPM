@@ -29,5 +29,12 @@ namespace QLXe
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuXe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmXe f = new frmXe();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

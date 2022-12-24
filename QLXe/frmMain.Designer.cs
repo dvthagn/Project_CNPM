@@ -106,6 +106,7 @@
             this.menuXe.Caption = "Xe";
             this.menuXe.Id = 5;
             this.menuXe.Name = "menuXe";
+            this.menuXe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuXe_ItemClick);
             // 
             // menuPhutung
             // 
