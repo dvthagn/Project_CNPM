@@ -99,3 +99,9 @@ E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\EntityFramework.dll
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\EntityFramework.SqlServer.dll
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\EntityFramework.xml
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\EntityFramework.SqlServer.xml
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\DevExpress.XtraVerticalGrid.v21.2.dll
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\DevExpress.XtraVerticalGrid.v21.2.xml
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\de\DevExpress.XtraVerticalGrid.v21.2.resources.dll
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\es\DevExpress.XtraVerticalGrid.v21.2.resources.dll
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\ja\DevExpress.XtraVerticalGrid.v21.2.resources.dll
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\ru\DevExpress.XtraVerticalGrid.v21.2.resources.dll

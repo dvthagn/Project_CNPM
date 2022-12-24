@@ -96,5 +96,60 @@ namespace QLXe
 
             }
         }
+
+        private void menuDel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                var delItem = data.XEs.FirstOrDefault(x => x.MAKHACH.Contains(txtMakhach.Text));
+                if (delItem != null)
+                {
+                    MessageBox.Show("Không xóa được !");
+                }
+                else
+                {
+
+                    var s = (from t in data.KHACHes
+                             where t.MAKHACH == txtMakhach.Text
+                             select t
+                             ).SingleOrDefault();
+                    data.KHACHes.Remove(s);
+                    data.SaveChanges();
+                    getData();
+                }
+
+            }
+        }
+
+        private void menuCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            action = false; //insert
+            //txtMakhach.ReadOnly = false;
+            menuDel.Enabled = false;
+            txtMakhach.ResetText();
+        }
+
+        private void dgKhach_FocusedViewChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e)
+        {
+
+        }
+
+        private void dgKhach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            txtMakhach.Text = gridView1.GetFocusedRowCellValue("MAKHACH").ToString();
+            txtTenkhach.Text = gridView1.GetFocusedRowCellValue("TENKHACH").ToString();
+
+            txtSDT.Text = gridView1.GetFocusedRowCellValue("SODIENTHOAI").ToString();
+            txtDiachi.Text = gridView1.GetFocusedRowCellValue("DIACHI").ToString();
+
+
+            menuDel.Enabled = true;
+            action = true; //update
+        }
     }
 }

@@ -45,6 +45,7 @@
             this.dgKhach = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grThongtin = new DevExpress.XtraEditors.GroupControl();
+            this.txtTenkhach = new DevExpress.XtraEditors.TextEdit();
             this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtDiachi = new DevExpress.XtraEditors.TextEdit();
             this.txtMakhach = new DevExpress.XtraEditors.TextEdit();
@@ -52,7 +53,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTenkhach = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grDanhsach)).BeginInit();
             this.grDanhsach.SuspendLayout();
@@ -60,10 +60,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grThongtin)).BeginInit();
             this.grThongtin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenkhach.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiachi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMakhach.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenkhach.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -111,6 +111,7 @@
             this.menuDel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuDel.ImageOptions.Image")));
             this.menuDel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("menuDel.ImageOptions.LargeImage")));
             this.menuDel.Name = "menuDel";
+            this.menuDel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuDel_ItemClick);
             // 
             // menuCancel
             // 
@@ -119,6 +120,7 @@
             this.menuCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuCancel.ImageOptions.Image")));
             this.menuCancel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("menuCancel.ImageOptions.LargeImage")));
             this.menuCancel.Name = "menuCancel";
+            this.menuCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuCancel_ItemClick);
             // 
             // bar3
             // 
@@ -199,11 +201,15 @@
             this.dgKhach.TabIndex = 0;
             this.dgKhach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.dgKhach.FocusedViewChanged += new DevExpress.XtraGrid.ViewFocusEventHandler(this.dgKhach_FocusedViewChanged);
+            this.dgKhach.Click += new System.EventHandler(this.dgKhach_Click);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.dgKhach;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // grThongtin
             // 
@@ -221,6 +227,14 @@
             this.grThongtin.Size = new System.Drawing.Size(784, 169);
             this.grThongtin.TabIndex = 6;
             this.grThongtin.Text = "Thông tin khách";
+            // 
+            // txtTenkhach
+            // 
+            this.txtTenkhach.Location = new System.Drawing.Point(189, 107);
+            this.txtTenkhach.MenuManager = this.barManager1;
+            this.txtTenkhach.Name = "txtTenkhach";
+            this.txtTenkhach.Size = new System.Drawing.Size(190, 22);
+            this.txtTenkhach.TabIndex = 8;
             // 
             // txtSDT
             // 
@@ -278,14 +292,6 @@
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Mã khách";
             // 
-            // txtTenkhach
-            // 
-            this.txtTenkhach.Location = new System.Drawing.Point(189, 107);
-            this.txtTenkhach.MenuManager = this.barManager1;
-            this.txtTenkhach.Name = "txtTenkhach";
-            this.txtTenkhach.Size = new System.Drawing.Size(190, 22);
-            this.txtTenkhach.TabIndex = 8;
-            // 
             // frmKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -311,10 +317,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grThongtin)).EndInit();
             this.grThongtin.ResumeLayout(false);
             this.grThongtin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenkhach.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiachi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMakhach.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenkhach.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,9 +347,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GroupControl grDanhsach;
-        private DevExpress.XtraGrid.GridControl dgKhach;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtTenkhach;
+        private DevExpress.XtraGrid.GridControl dgKhach;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
