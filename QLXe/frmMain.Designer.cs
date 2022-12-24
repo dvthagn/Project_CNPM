@@ -113,6 +113,7 @@
             this.menuPhutung.Caption = "Phụ tùng";
             this.menuPhutung.Id = 6;
             this.menuPhutung.Name = "menuPhutung";
+            this.menuPhutung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuPhutung_ItemClick);
             // 
             // menuHoadon
             // 

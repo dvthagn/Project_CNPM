@@ -36,5 +36,12 @@ namespace QLXe
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuPhutung_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmPhutung f = new frmPhutung();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

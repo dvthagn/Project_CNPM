@@ -106,3 +106,4 @@ E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\es\DevExpress.XtraVerticalGri
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\ja\DevExpress.XtraVerticalGrid.v21.2.resources.dll
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\bin\Debug\ru\DevExpress.XtraVerticalGrid.v21.2.resources.dll
 E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmXe.resources
+E:\HK1 NAM 3\CN PHAN MEM\final\QLXe\QLXe\obj\Debug\QLXe.frmPhutung.resources

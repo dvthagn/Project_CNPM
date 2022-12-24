@@ -95,6 +95,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhutung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhutung.Designer.cs">
+      <DependentUpon>frmPhutung.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhutung.resx">
+      <DependentUpon>frmPhutung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXe.resx">
       <DependentUpon>frmXe.cs</DependentUpon>
